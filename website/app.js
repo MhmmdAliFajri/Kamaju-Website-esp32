@@ -1,289 +1,259 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const loanForm =
-        document.getElementById("loanForm");
-
-    const borrowerName =
-        document.getElementById("borrowerName");
-
-    const pinInput =
-        document.getElementById("pin");
-
+    const loanForm = document.getElementById("loanForm");
+    const borrowerName = document.getElementById("borrowerName");
+    const pinInput = document.getElementById("pin");
 
     if (!loanForm) {
-
-        console.log(
-            "Form loanForm tidak ditemukan."
-        );
-
+        console.log("Form loanForm tidak ditemukan.");
         return;
     }
 
+    loanForm.addEventListener("submit", async function (event) {
 
-    // ==========================================
-    // SUBMIT PEMINJAMAN
-    // ==========================================
+        event.preventDefault();
 
-    loanForm.addEventListener(
-        "submit",
-        async function (event) {
+        const name = borrowerName.value.trim();
+        const pin = pinInput.value.trim();
 
-            event.preventDefault();
+        // ==========================================
+        // VALIDASI NAMA
+        // ==========================================
 
+        if (name === "") {
 
-            // ==========================================
-            // AMBIL DATA
-            // ==========================================
+            alert("Nama peminjam wajib diisi.");
 
-            const name =
-                borrowerName.value.trim();
+            borrowerName.focus();
 
-            const pin =
-                pinInput.value.trim();
+            return;
+        }
 
 
-            // ==========================================
-            // VALIDASI NAMA
-            // ==========================================
+        // ==========================================
+        // VALIDASI PIN
+        // ==========================================
 
-            if (name === "") {
+        if (pin === "") {
 
-                alert(
-                    "Nama peminjam wajib diisi."
-                );
+            alert("PIN wajib diisi.");
 
-                borrowerName.focus();
+            pinInput.focus();
 
-                return;
-            }
+            return;
+        }
 
 
-            // ==========================================
-            // VALIDASI PIN
-            // ==========================================
+        if (!/^\d{6}$/.test(pin)) {
 
-            if (pin === "") {
+            alert(
+                "PIN harus terdiri dari 6 angka."
+            );
 
-                alert(
-                    "PIN wajib diisi."
-                );
+            pinInput.focus();
 
-                pinInput.focus();
-
-                return;
-            }
+            return;
+        }
 
 
-            if (!/^\d{6}$/.test(pin)) {
+        // ==========================================
+        // CEK PIN
+        // ==========================================
 
-                alert(
-                    "PIN harus terdiri dari 6 angka."
-                );
+        if (pin !== CONFIG.PIN) {
 
-                pinInput.focus();
+            alert(
+                "❌ PIN SALAH!\n\n" +
+                "Silakan masukkan PIN yang benar."
+            );
 
-                return;
-            }
+            pinInput.value = "";
 
+            pinInput.focus();
 
-            // ==========================================
-            // CEK PIN
-            // ==========================================
-
-            if (pin !== CONFIG.PIN) {
-
-                alert(
-                    "❌ PIN SALAH!\n\n" +
-                    "Silakan masukkan PIN yang benar."
-                );
-
-                pinInput.value = "";
-
-                pinInput.focus();
-
-                return;
-            }
+            return;
+        }
 
 
-            // ==========================================
-            // CEGAH DOUBLE SUBMIT
-            // ==========================================
+        // ==========================================
+        // SIMPAN PEMINJAMAN
+        // ==========================================
 
-            const submitButton =
-                loanForm.querySelector(
-                    'button[type="submit"]'
-                );
+        try {
 
-            if (submitButton) {
+            console.log(
+                "➡️ Menyimpan peminjaman ke Google Sheets..."
+            );
 
-                submitButton.disabled = true;
-
-                submitButton.textContent =
-                    "⏳ MENYIMPAN PEMINJAMAN...";
-
-            }
+            console.log(
+                "Gateway:",
+                CONFIG.GATEWAY_URL
+            );
 
 
-            try {
+            const response = await fetch(
 
-                console.log(
-                    "➡️ Menyimpan peminjaman..."
-                );
+                `${CONFIG.GATEWAY_URL}/api/log`,
 
+                {
+                    method: "POST",
 
-                // ==========================================
-                // 1 REQUEST SAJA
-                // ==========================================
+                    headers: {
 
-                const response =
-                    await fetch(
-                        `${CONFIG.GATEWAY_URL}/api/log`,
-                        {
-                            method: "POST",
+                        "Content-Type": "application/json",
 
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
+                        // Header untuk melewati
+                        // browser warning ngrok
+                        "ngrok-skip-browser-warning": "true"
 
-                            body: JSON.stringify({
+                    },
 
-                                action:
-                                    "createLoan",
+                    body: JSON.stringify({
 
-                                borrower:
-                                    name,
+                        action: "createLoan",
 
-                                device:
-                                    "Node-01"
+                        borrower: name,
 
-                            })
-                        }
-                    );
+                        device: "Node-01"
 
-
-                const data =
-                    await response.json();
-
-
-                console.log(
-                    "⬅️ Response:",
-                    data
-                );
-
-
-                // ==========================================
-                // CEK RESPONSE
-                // ==========================================
-
-                if (
-                    !response.ok ||
-                    !data.ok ||
-                    !data.loanId
-                ) {
-
-                    throw new Error(
-                        data.message ||
-                        "Gagal menyimpan peminjaman."
-                    );
+                    })
 
                 }
 
-
-                // ==========================================
-                // SIMPAN LOCAL STORAGE
-                // ==========================================
-
-                localStorage.setItem(
-                    "activeBorrower",
-                    name
-                );
-
-                localStorage.setItem(
-                    "loanStartTime",
-                    new Date().toISOString()
-                );
-
-                localStorage.setItem(
-                    "loanId",
-                    data.loanId
-                );
-
-                localStorage.setItem(
-                    "dashboardAccess",
-                    "true"
-                );
+            );
 
 
-                console.log(
-                    "Loan ID:",
-                    data.loanId
-                );
+            // ==========================================
+            // CEK RESPONSE
+            // ==========================================
+
+            const text = await response.text();
+
+            console.log(
+                "⬅️ Response Gateway:",
+                text
+            );
 
 
-                // ==========================================
-                // BERHASIL
-                // ==========================================
+            let data;
 
-                alert(
+            try {
 
-                    "✅ PEMINJAMAN BERHASIL!\n\n" +
-
-                    "Peminjam : " +
-                    name +
-
-                    "\nLoan ID  : " +
-                    data.loanId +
-
-                    "\n\nAkses Dashboard diberikan."
-
-                );
-
-
-                // ==========================================
-                // DASHBOARD
-                // ==========================================
-
-                window.location.href =
-                    "dashboard.html";
-
+                data = JSON.parse(text);
 
             } catch (error) {
 
                 console.error(
-                    "PEMINJAMAN ERROR:",
-                    error
+                    "Response bukan JSON:",
+                    text
                 );
 
-
-                alert(
-
-                    "❌ GAGAL MENYIMPAN PEMINJAMAN!\n\n" +
-
-                    error.message +
-
-                    "\n\nSilakan coba lagi."
-
+                throw new Error(
+                    "Gateway tidak mengembalikan JSON."
                 );
-
-
-                // ==========================================
-                // AKTIFKAN KEMBALI
-                // ==========================================
-
-                if (submitButton) {
-
-                    submitButton.disabled =
-                        false;
-
-                    submitButton.textContent =
-                        "PINJAM";
-
-                }
 
             }
 
+
+            console.log(
+                "Response Google Sheets:",
+                data
+            );
+
+
+            if (!response.ok || !data.ok) {
+
+                throw new Error(
+
+                    data.message ||
+
+                    data.error ||
+
+                    "Gagal menyimpan peminjaman."
+
+                );
+
+            }
+
+
+            // ==========================================
+            // SIMPAN DATA SESSION
+            // ==========================================
+
+            localStorage.setItem(
+                "activeBorrower",
+                name
+            );
+
+            localStorage.setItem(
+                "loanStartTime",
+                new Date().toISOString()
+            );
+
+            localStorage.setItem(
+                "loanId",
+                data.loanId
+            );
+
+            localStorage.setItem(
+                "dashboardAccess",
+                "true"
+            );
+
+
+            console.log(
+                "Loan ID:",
+                data.loanId
+            );
+
+
+            // ==========================================
+            // BERHASIL
+            // ==========================================
+
+            alert(
+
+                "✅ PEMINJAMAN BERHASIL!\n\n" +
+
+                "Peminjam : " +
+                name +
+
+                "\nLoan ID  : " +
+                data.loanId +
+
+                "\n\nAkses Dashboard diberikan."
+
+            );
+
+
+            // ==========================================
+            // PINDAH KE DASHBOARD
+            // ==========================================
+
+            window.location.href =
+                "dashboard.html";
+
+
+        } catch (error) {
+
+            console.error(
+                "PEMINJAMAN ERROR:",
+                error
+            );
+
+
+            alert(
+
+                "❌ GAGAL MENYIMPAN PEMINJAMAN!\n\n" +
+
+                error.message +
+
+                "\n\nSilakan coba lagi."
+
+            );
+
         }
-    );
+
+    });
 
 });
