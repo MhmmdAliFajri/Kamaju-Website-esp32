@@ -1,0 +1,2055 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1120;
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    background: #111827;
+
+    border-right: 1px solid #1f2937;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 18px;
+
+    z-index: 100;
+}
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 5px 10px 30px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+}
+
+.brand h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    display: block;
+
+    font-size: 10px;
+
+    color: #6b7280;
+
+    margin-top: 3px;
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    color: #9ca3af;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.menu-item.active {
+    background: linear-gradient(
+        90deg,
+        #1d4ed8,
+        #2563eb
+    );
+
+    color: white;
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.system-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px;
+
+    background: #0b1220;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 10px;
+}
+
+.system-status strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.system-status small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #6b7280;
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   STATUS DOT
+========================================= */
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow: 0 0 10px #22c55e;
+
+    display: inline-block;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main-content {
+    margin-left: 260px;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    height: 90px;
+
+    padding: 20px 40px;
+
+    border-bottom: 1px solid #1f2937;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: rgba(11, 17, 32, 0.85);
+}
+
+.page-label {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #3b82f6;
+
+    font-weight: bold;
+}
+
+.topbar h1 {
+    font-size: 23px;
+
+    margin-top: 5px;
+}
+
+.top-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 12px;
+
+    color: #9ca3af;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 35px 40px 60px;
+}
+
+
+/* =========================================
+   WELCOME CARD
+========================================= */
+
+.welcome-card {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 28px 30px;
+
+    margin-bottom: 22px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.15),
+            rgba(79, 70, 229, 0.05)
+        );
+
+    border: 1px solid #263554;
+}
+
+.card-label {
+    color: #60a5fa;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+}
+
+.welcome-card h2 {
+    font-size: 25px;
+
+    margin: 9px 0;
+}
+
+.welcome-card h2 span {
+    color: #60a5fa;
+}
+
+.welcome-card p {
+    max-width: 650px;
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.welcome-icon {
+    font-size: 55px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   LOAN CARD
+========================================= */
+
+.loan-card {
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.card-header h2 {
+    margin-top: 6px;
+
+    font-size: 20px;
+}
+
+.lock-icon {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 12px;
+
+    background: #172033;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+
+    left: 14px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 16px;
+
+    opacity: 0.7;
+}
+
+.input-wrapper input {
+    width: 100%;
+
+    height: 50px;
+
+    background: #0b1220;
+
+    border: 1px solid #263244;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 14px;
+
+    padding: 0 45px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.input-wrapper input:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-wrapper input::placeholder {
+    color: #4b5563;
+}
+
+.show-pin {
+    position: absolute;
+
+    right: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: transparent;
+
+    border: none;
+
+    color: #9ca3af;
+
+    cursor: pointer;
+
+    padding: 8px;
+}
+
+.show-pin:hover {
+    color: white;
+}
+
+.input-help {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 11px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.btn-primary {
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   SECURITY
+========================================= */
+
+.security-info {
+    margin-top: 22px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: #0b1220;
+
+    border: 1px solid #1f2937;
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: flex-start;
+}
+
+.security-icon {
+    font-size: 20px;
+}
+
+.security-info strong {
+    font-size: 12px;
+}
+
+.security-info p {
+    color: #6b7280;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   INFO GRID
+========================================= */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.info-card {
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.info-icon {
+    width: 38px;
+    height: 38px;
+
+    background: #172033;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+}
+
+.info-card span {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 10px;
+
+    margin-bottom: 4px;
+}
+
+.info-card strong {
+    font-size: 12px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+    }
+
+    .content {
+        padding: 25px 20px;
+    }
+
+    .topbar {
+        padding: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #1f2937;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .menu {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+    .menu-item {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .topbar {
+        height: auto;
+
+        gap: 15px;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .welcome-card {
+        align-items: flex-start;
+    }
+
+    .welcome-icon {
+        display: none;
+    }
+
+}
+
+/* =================================
+   DASHBOARD
+================================= */
+
+.dashboard-status-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.03)
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+}
+
+
+.dashboard-status-card h2 {
+
+    margin: 10px 0;
+
+    font-size: 32px;
+
+}
+
+
+.dashboard-status-card p {
+
+    margin: 0;
+
+    opacity: 0.65;
+
+}
+
+
+.dashboard-lock-icon {
+
+    font-size: 70px;
+
+}
+
+
+.control-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.btn-secondary {
+
+    padding: 14px 24px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.06);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.btn-secondary:hover {
+
+    background: rgba(255,255,255,0.12);
+
+}
+
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+}
+
+
+.control-message {
+
+    margin-top: 18px;
+
+    min-height: 24px;
+
+    font-size: 14px;
+
+}
+
+
+.borrower-display {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.04);
+
+}
+
+
+.borrower-display span {
+
+    font-size: 30px;
+
+}
+
+
+.borrower-display strong {
+
+    font-size: 20px;
+
+}
+
+
+.status-dot.offline {
+
+    background: #777;
+
+}
+
+/* ==========================================
+   REDESIGN HALAMAN PENGEMBALIAN
+   ========================================== */
+
+.return-page {
+    max-width: 1000px;
+}
+
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.return-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.return-header-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    font-size: 28px;
+}
+
+.return-header h2 {
+    margin: 0 0 5px;
+
+    font-size: 24px;
+}
+
+.return-header p {
+    margin: 0;
+
+    font-size: 14px;
+
+    opacity: 0.6;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   PEMINJAM AKTIF
+   ========================================== */
+
+.return-borrower-card {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px 22px;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.return-borrower-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    font-size: 22px;
+}
+
+.return-borrower-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    flex: 1;
+}
+
+.return-borrower-info span {
+    font-size: 11px;
+
+    letter-spacing: 0.8px;
+
+    opacity: 0.5;
+}
+
+.return-borrower-info strong {
+    font-size: 17px;
+}
+
+.borrower-status {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+
+/* ==========================================
+   PROCESS CARD
+   ========================================== */
+
+.return-process-card {
+    padding: 28px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.return-process-title {
+    margin-bottom: 25px;
+}
+
+.section-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.5;
+}
+
+.return-process-title h2 {
+    margin: 0;
+
+    font-size: 21px;
+}
+
+
+/* ==========================================
+   STEP INDICATOR
+   ========================================== */
+
+.return-steps {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.return-step {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    opacity: 0.35;
+
+    transition: 0.25s ease;
+}
+
+.return-step.active {
+    opacity: 1;
+}
+
+.step-number {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.return-step.active .step-number {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.step-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.step-info strong {
+    font-size: 12px;
+}
+
+.step-info span {
+    font-size: 10px;
+
+    opacity: 0.55;
+}
+
+.step-line {
+    flex: 1;
+
+    height: 1px;
+
+    margin: 0 14px;
+
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==========================================
+   INSTRUKSI
+   ========================================== */
+
+.return-instruction {
+    display: flex;
+
+    gap: 14px;
+
+    padding: 17px;
+
+    margin-bottom: 25px;
+
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.instruction-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    font-size: 19px;
+}
+
+.return-instruction strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 13px;
+}
+
+.return-instruction p {
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    opacity: 0.6;
+}
+
+
+/* ==========================================
+   PIN
+   ========================================== */
+
+.return-pin-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.return-pin-group label {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+.return-pin-group input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    border-radius: 11px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: inherit;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.return-pin-group input:focus {
+    border-color: rgba(255, 255, 255, 0.35);
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+
+/* ==========================================
+   BUTTON
+   ========================================== */
+
+.return-button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border-radius: 11px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.return-button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+#finishReturnBtn {
+    margin-top: 10px;
+}
+
+
+/* ==========================================
+   MESSAGE
+   ========================================== */
+
+#returnMessage {
+    margin-top: 16px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .return-header {
+        align-items: flex-start;
+    }
+
+    .return-header h2 {
+        font-size: 20px;
+    }
+
+    .return-process-card {
+        padding: 20px;
+    }
+
+    .return-steps {
+        align-items: flex-start;
+    }
+
+    .return-step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step-line {
+        margin-top: 16px;
+    }
+
+    .step-info span {
+        display: none;
+    }
+
+    .borrower-status {
+        display: none;
+    }
+
+}
+
+/* =========================================================
+   SMART VEHICLE KEY SYSTEM
+   LOG AKTIVITAS
+   ========================================================= */
+
+
+/* =========================================================
+   RESET DASAR
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+    background: #080f1f;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 253px;
+    height: 100vh;
+
+    background: #111827;
+
+    border-right: 1px solid #253047;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    padding: 19px 20px;
+
+    min-height: 78px;
+}
+
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+
+    background: #315be8;
+
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+
+    margin-right: 13px;
+
+    box-shadow: 0 7px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+.brand h2 {
+    margin: 0;
+
+    font-size: 16px;
+
+    letter-spacing: 0.5px;
+
+    color: #ffffff;
+}
+
+
+.brand span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    color: #66758f;
+}
+
+
+/* =========================================================
+   SIDEBAR MENU
+   ========================================================= */
+
+.sidebar-menu {
+    padding: 15px 11px;
+}
+
+
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    height: 46px;
+
+    padding: 0 15px;
+
+    margin-bottom: 8px;
+
+    border-radius: 11px;
+
+    color: #c6cedd;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.menu-item:hover {
+    background: #18243a;
+
+    color: #ffffff;
+}
+
+
+.menu-item.active {
+    background: #2563eb;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.18);
+}
+
+
+.menu-icon {
+    width: 27px;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   SIDEBAR STATUS
+   ========================================================= */
+
+.sidebar-status {
+    margin-top: auto;
+
+    margin-left: 11px;
+    margin-right: 18px;
+    margin-bottom: 25px;
+
+    min-height: 58px;
+
+    border: 1px solid #26334a;
+
+    border-radius: 10px;
+
+    background: #0c1424;
+
+    display: flex;
+    align-items: center;
+
+    padding: 12px 13px;
+}
+
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    margin-right: 10px;
+
+    box-shadow:
+        0 0 8px rgba(34, 197, 94, 0.65);
+}
+
+
+.sidebar-status strong {
+    display: block;
+
+    font-size: 11px;
+
+    color: #ffffff;
+}
+
+
+.sidebar-status small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 9px;
+
+    color: #71809c;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    margin-left: 253px;
+
+    min-height: 100vh;
+
+    background: #080f1f;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+    min-height: 79px;
+
+    padding: 14px 40px;
+
+    border-bottom: 1px solid #202b40;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.system-label {
+    color: #3b82f6;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 5px;
+}
+
+
+.topbar h1 {
+    margin: 0;
+
+    font-size: 24px;
+
+    line-height: 1.1;
+
+    color: #ffffff;
+}
+
+
+.system-online {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #b8c2d4;
+
+    font-size: 12px;
+}
+
+
+.system-online span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 8px rgba(34, 197, 94, 0.75);
+}
+
+
+/* =========================================================
+   LOG CONTAINER
+   ========================================================= */
+
+.logs-container {
+    padding: 35px 86px 50px 86px;
+}
+
+
+/* =========================================================
+   LOG CARD
+   ========================================================= */
+
+.logs-card {
+    width: 100%;
+
+    background: #111827;
+
+    border: 1px solid #253452;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   LOG HEADER
+   ========================================================= */
+
+.logs-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.logs-title-small {
+    color: #3b82f6;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.logs-title {
+    margin: 0;
+
+    font-size: 23px;
+
+    color: #ffffff;
+}
+
+
+.logs-subtitle {
+    margin: 8px 0 0 0;
+
+    color: #71809c;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.refresh-btn {
+    border: 0;
+
+    outline: none;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    padding: 11px 17px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.refresh-btn:hover {
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+
+.refresh-btn:active {
+    transform: translateY(0);
+}
+
+
+.refresh-btn:disabled {
+    opacity: 0.6;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid #253452;
+
+    border-radius: 12px;
+
+    background: #0c1424;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.activity-table {
+    width: 100%;
+
+    min-width: 760px;
+
+    border-collapse: collapse;
+}
+
+
+.activity-table thead {
+    background: #172033;
+}
+
+
+.activity-table th {
+    padding: 15px 16px;
+
+    text-align: left;
+
+    color: #7ea9ff;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+.activity-table td {
+    padding: 15px 16px;
+
+    border-top: 1px solid #202d45;
+
+    color: #d9e1ef;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+.activity-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+
+.activity-table tbody tr:hover {
+    background: #141e31;
+}
+
+
+/* =========================================================
+   LOAN ID
+   ========================================================= */
+
+.activity-table td strong {
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ACTIVITY BADGE
+   ========================================================= */
+
+.activity-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.status-success {
+    background: rgba(34, 197, 94, 0.12);
+
+    color: #4ade80;
+}
+
+
+.status-failed {
+    background: rgba(239, 68, 68, 0.12);
+
+    color: #f87171;
+}
+
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading {
+    padding: 40px !important;
+
+    text-align: center !important;
+
+    color: #71809c !important;
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+   ========================================================= */
+
+.empty-row {
+    padding: 40px !important;
+
+    text-align: center !important;
+
+    color: #66758f !important;
+
+    line-height: 1.7;
+}
+
+
+.empty-row small {
+    color: #52617a;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.table-wrapper::-webkit-scrollbar {
+    height: 7px;
+}
+
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #0b1220;
+}
+
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #293751;
+
+    border-radius: 10px;
+}
+
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #3a4b6a;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+    }
+
+    .logs-container {
+        padding: 30px;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #253047;
+    }
+
+
+    .sidebar-menu {
+        display: flex;
+
+        overflow-x: auto;
+
+        padding: 10px;
+    }
+
+
+    .menu-item {
+        flex: 0 0 auto;
+
+        margin-right: 5px;
+
+        margin-bottom: 0;
+    }
+
+
+    .sidebar-status {
+        display: none;
+    }
+
+
+    .main-content {
+        margin-left: 0;
+    }
+
+
+    .topbar {
+        padding: 18px 22px;
+    }
+
+
+    .logs-container {
+        padding: 22px;
+    }
+
+
+    .logs-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+}
