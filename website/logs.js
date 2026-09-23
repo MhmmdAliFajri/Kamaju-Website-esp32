@@ -168,14 +168,16 @@ document.addEventListener(
                 // REQUEST KE GATEWAY
                 // ==========================================
 
-                const response =
-                    await fetch(
-                        `${CONFIG.GATEWAY_URL}/api/logs`,
-                        {
-                            method: "GET",
-                            cache: "no-store"
+                const response = await fetch(
+                    `${CONFIG.GATEWAY_URL}/api/logs`,
+                    {
+                        method: "GET",
+                
+                        headers: {
+                            "ngrok-skip-browser-warning": "true"
                         }
-                    );
+                    }
+                );
 
 
                 // ==========================================
