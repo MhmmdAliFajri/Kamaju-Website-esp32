@@ -1,319 +1,315 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Car Key Management</title>
 
-    <title>Peminjaman - CAR KEY</title>
-
-    <!-- FAVICON -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="assets/logo.png"
-    >
-
-    <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-<!-- ==========================================
-     SIDEBAR
-========================================== -->
+        <div class="brand">
+            <div class="brand-icon">🚗</div>
 
-<aside class="sidebar">
-
-    <!-- BRAND -->
-    <div class="brand">
-
-        <div class="brand-icon">
-
-            <img
-                src="assets/logo.png"
-                alt="Smart Vehicle Key System"
-            >
-
-        </div>
-
-
-        <div>
-
-            <h2>CAR KEY</h2>
-
-            <span>
-                Management System
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- MENU -->
-    <nav class="sidebar-menu">
-
-
-        <!-- PEMINJAMAN -->
-        <a
-            href="index.html"
-            class="menu-item active"
-        >
-
-            <span class="menu-icon">
-                🔑
-            </span>
-
-            <span>
-                Peminjaman
-            </span>
-
-        </a>
-
-
-        <!-- DASHBOARD -->
-        <a
-            href="dashboard.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                📊
-            </span>
-
-            <span>
-                Dashboard
-            </span>
-
-        </a>
-
-
-        <!-- PENGEMBALIAN -->
-        <a
-            href="pengembalian.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                ↩️
-            </span>
-
-            <span>
-                Pengembalian
-            </span>
-
-        </a>
-
-
-        <!-- LOG AKTIVITAS -->
-        <a
-            href="logs.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                📋
-            </span>
-
-            <span>
-                Log Aktivitas
-            </span>
-
-        </a>
-
-
-    </nav>
-
-
-    <!-- SYSTEM STATUS -->
-    <div class="sidebar-status">
-
-        <div class="status-indicator"></div>
-
-        <div>
-
-            <strong>
-                Sistem Online
-            </strong>
-
-            <small>
-                ESP32 Ready
-            </small>
-
-        </div>
-
-    </div>
-
-
-</aside>
-
-
-
-<!-- ==========================================
-     MAIN CONTENT
-========================================== -->
-
-<main class="main-content">
-
-
-    <!-- TOPBAR -->
-
-    <header class="topbar">
-
-        <div>
-
-            <div class="system-label">
-                SMART VEHICLE KEY SYSTEM
+            <div>
+                <h2>CAR KEY</h2>
+                <span>Management System</span>
             </div>
-
-            <h1>
-                Peminjaman
-            </h1>
-
-            <p>
-                Sistem peminjaman kunci kendaraan
-            </p>
-
         </div>
 
+        <nav class="menu">
 
-        <div class="system-online">
+            <a href="index.html" class="menu-item active">
+                <span>🔑</span>
+                <span>Peminjaman</span>
+            </a>
 
-            <span></span>
+            <a href="dashboard.html" class="menu-item">
+                <span>📊</span>
+                <span>Dashboard</span>
+            </a>
 
-            System Online
+            <a href="logs.html" class="menu-item">
+                <span>📋</span>
+                <span>Log Aktivitas</span>
+            </a>
 
-        </div>
+        </nav>
 
-    </header>
+        <div class="sidebar-bottom">
 
-
-
-    <!-- CONTENT -->
-
-    <section class="content">
-
-
-        <div class="card">
-
-
-            <div class="card-header">
+            <div class="system-status">
+                <span class="status-dot"></span>
 
                 <div>
+                    <strong>Sistem Online</strong>
+                    <small>ESP32 Ready</small>
+                </div>
+            </div>
 
-                    <span class="section-label">
-                        PEMINJAMAN KUNCI
-                    </span>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <span class="page-label">SMART VEHICLE KEY SYSTEM</span>
+                <h1>Peminjaman Kunci</h1>
+            </div>
+
+            <div class="top-status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <!-- WELCOME -->
+            <div class="welcome-card">
+
+                <div class="welcome-text">
+
+                    <span class="card-label">PEMINJAMAN KENDARAAN</span>
 
                     <h2>
-                        Form Peminjaman
+                        Silakan masukkan data
+                        <span>peminjam</span>
                     </h2>
 
                     <p>
-                        Silakan masukkan nama peminjam
-                        dan PIN akses.
+                        Masukkan nama peminjam dan PIN keamanan
+                        untuk mengakses tempat penyimpanan kunci kendaraan.
                     </p>
 
                 </div>
 
+                <div class="welcome-icon">
+                    🔐
+                </div>
+
             </div>
 
 
+            <!-- FORM CARD -->
+            <div class="loan-card">
 
-            <!-- FORM -->
+                <div class="card-header">
 
-            <form id="loanForm">
+                    <div>
+                        <span class="card-label">AKSES KUNCI</span>
+                        <h2>Mulai Peminjaman</h2>
+                    </div>
 
-
-                <!-- NAMA -->
-
-                <div class="form-group">
-
-                    <label for="borrowerName">
-                        Nama Peminjam
-                    </label>
-
-                    <input
-                        type="text"
-                        id="borrowerName"
-                        placeholder="Masukkan nama peminjam"
-                        autocomplete="name"
-                        required
-                    >
+                    <div class="lock-icon">
+                        🔒
+                    </div>
 
                 </div>
 
 
+                <form id="loanForm">
 
-                <!-- PIN -->
+                    <!-- NAMA -->
+                    <div class="form-group">
 
-                <div class="form-group">
+                        <label for="borrowerName">
+                            Nama Peminjam
+                        </label>
 
-                    <label for="pin">
-                        PIN Akses
-                    </label>
+                        <div class="input-wrapper">
 
-                    <input
-                        type="password"
-                        id="pin"
-                        maxlength="6"
-                        inputmode="numeric"
-                        placeholder="Masukkan 6 digit PIN"
-                        autocomplete="off"
-                        required
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+                            <input
+                                type="text"
+                                id="borrowerName"
+                                name="borrowerName"
+                                placeholder="Masukkan nama peminjam"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PIN -->
+                    <div class="form-group">
+
+                        <label for="pin">
+                            PIN Keamanan
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔢
+                            </span>
+
+                            <input
+                                type="password"
+                                id="pin"
+                                name="pin"
+                                placeholder="Masukkan PIN"
+                                inputmode="numeric"
+                                maxlength="6"
+                                autocomplete="off"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-pin"
+                                id="showPin"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                        <small class="input-help">
+                            PIN diperlukan untuk membuka akses kunci.
+                        </small>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                        id="startLoanBtn"
                     >
+
+                        <span>🔓</span>
+
+                        <span>
+                            Mulai Peminjaman
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- SECURITY INFO -->
+                <div class="security-info">
+
+                    <div class="security-icon">
+                        🛡️
+                    </div>
+
+                    <div>
+
+                        <strong>Akses Terproteksi</strong>
+
+                        <p>
+                            Setiap peminjaman dan pengembalian
+                            membutuhkan verifikasi PIN.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMATION CARDS -->
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        🔑
+                    </div>
+
+                    <div>
+                        <span>Status Kunci</span>
+                        <strong>TERKUNCI</strong>
+                    </div>
 
                 </div>
 
 
+                <div class="info-card">
 
-                <!-- BUTTON -->
+                    <div class="info-icon">
+                        📡
+                    </div>
 
-                <button
-                    type="submit"
-                    class="btn-primary"
-                >
+                    <div>
+                        <span>ESP32</span>
+                        <strong>READY</strong>
+                    </div>
 
-                    🔑
-
-                    MULAI PEMINJAMAN
-
-                </button>
-
-
-            </form>
+                </div>
 
 
-        </div>
+                <div class="info-card">
 
+                    <div class="info-icon">
+                        🔐
+                    </div>
 
-    </section>
+                    <div>
+                        <span>Keamanan</span>
+                        <strong>PIN ACTIVE</strong>
+                    </div>
 
+                </div>
 
-</main>
+            </div>
 
+        </section>
 
+    </main>
 
-<!-- JAVASCRIPT -->
 
 <script src="config.js"></script>
-
 <script src="app.js"></script>
 
+<script>
+
+const pinInput = document.getElementById("pin");
+const showPin = document.getElementById("showPin");
+
+showPin.addEventListener("click", function () {
+
+    if (pinInput.type === "password") {
+
+        pinInput.type = "text";
+        showPin.textContent = "🙈";
+
+    } else {
+
+        pinInput.type = "password";
+        showPin.textContent = "👁";
+
+    }
+
+});
+
+</script>
 
 </body>
-
 </html>
