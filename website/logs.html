@@ -2,439 +2,361 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Log Aktivitas - CAR KEY</title>
+
+    <!-- FAVICON -->
 
     <link
         rel="icon"
         type="image/png"
         href="assets/logo.png"
     >
-    
-    <link rel="stylesheet" href="style.css">
 
-        /* ==========================================
-           LOG AKTIVITAS
-        ========================================== */
+    <!-- CSS -->
 
-        .logs-container {
-            padding: 36px 86px;
-        }
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-        .logs-card {
-            background: #111827;
-            border: 1px solid #253452;
-            border-radius: 18px;
-            padding: 28px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .logs-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .logs-title-small {
-            color: #3b82f6;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 7px;
-        }
-
-        .logs-title {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .logs-subtitle {
-            color: #71809c;
-            margin-top: 8px;
-            font-size: 13px;
-        }
-
-        .refresh-btn {
-            border: none;
-            border-radius: 10px;
-            padding: 11px 18px;
-            background: #2563eb;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .refresh-btn:hover {
-            opacity: 0.9;
-        }
-
-        .refresh-btn:disabled {
-            opacity: 0.6;
-            cursor: wait;
-        }
-
-        /* ==========================================
-           TABLE
-        ========================================== */
-
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            border: 1px solid #253452;
-            border-radius: 12px;
-        }
-
-        .activity-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 750px;
-        }
-
-        .activity-table thead {
-            background: #172033;
-        }
-
-        .activity-table th {
-            text-align: left;
-            padding: 15px 16px;
-            color: #7ea9ff;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        .activity-table td {
-            padding: 15px 16px;
-            border-top: 1px solid #202d45;
-            color: #d9e1ef;
-            font-size: 13px;
-        }
-
-        .activity-table tbody tr:hover {
-            background: #151e30;
-        }
-
-        .empty-row {
-            text-align: center !important;
-            color: #66758f !important;
-            padding: 40px !important;
-        }
-
-        /* ==========================================
-           STATUS
-        ========================================== */
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .status-success {
-            background: rgba(34, 197, 94, 0.12);
-            color: #4ade80;
-        }
-
-        .status-failed {
-            background: rgba(239, 68, 68, 0.12);
-            color: #f87171;
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: currentColor;
-        }
-
-        /* ==========================================
-           ACTIVITY BADGE
-        ========================================== */
-
-        .activity-badge {
-            display: inline-block;
-            padding: 6px 10px;
-            border-radius: 7px;
-            background: rgba(59,130,246,0.12);
-            color: #60a5fa;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        /* ==========================================
-           LOADING
-        ========================================== */
-
-        .loading {
-            text-align: center;
-            padding: 35px !important;
-            color: #71809c !important;
-        }
-
-        /* ==========================================
-           RESPONSIVE
-        ========================================== */
-
-        @media (max-width: 900px) {
-
-            .logs-container {
-                padding: 25px 20px;
-            }
-
-            .logs-header {
-                align-items: flex-start;
-                gap: 15px;
-                flex-direction: column;
-            }
-
-        }
-
-    </style>
 </head>
 
 
 <body>
 
-    <!-- ==========================================
-         SIDEBAR
-    ========================================== -->
 
-    <aside class="sidebar">
+<!-- ==========================================
+     SIDEBAR
+========================================== -->
 
-        <div class="brand">
-        
-            <div class="brand-icon">
-                <img
-                    src="assets/logo.png"
-                    alt="Smart Vehicle Key System"
-                >
-            </div>
-        
-            <div>
-                <h2>CAR KEY</h2>
-                <span>Management System</span>
-            </div>
-        
-        </div>
+<aside class="sidebar">
 
 
-        <nav class="sidebar-menu">
+    <!-- BRAND -->
 
-            <!-- PEMINJAMAN -->
+    <div class="brand">
 
-            <a href="index.html" class="menu-item">
+        <div class="brand-icon">
 
-                <span class="menu-icon">🔑</span>
-
-                <span>Peminjaman</span>
-
-            </a>
-
-
-            <!-- DASHBOARD -->
-
-            <a href="dashboard.html" class="menu-item">
-
-                <span class="menu-icon">📊</span>
-
-                <span>Dashboard</span>
-
-            </a>
-
-
-            <!-- LOG AKTIVITAS -->
-
-            <a href="logs.html"
-               class="menu-item active">
-
-                <span class="menu-icon">📋</span>
-
-                <span>Log Aktivitas</span>
-
-            </a>
-
-        </nav>
-
-
-        <!-- ==========================================
-             SYSTEM STATUS
-        ========================================== -->
-
-        <div class="sidebar-status">
-
-            <div class="status-indicator"></div>
-
-            <div>
-
-                <strong>Sistem Online</strong>
-
-                <small>ESP32 Ready</small>
-
-            </div>
+            <img
+                src="assets/logo.png"
+                alt="Smart Vehicle Key System"
+            >
 
         </div>
 
-    </aside>
+
+        <div>
+
+            <h2>
+                CAR KEY
+            </h2>
+
+            <span>
+                Management System
+            </span>
+
+        </div>
+
+    </div>
 
 
-    <!-- ==========================================
-         MAIN CONTENT
-    ========================================== -->
 
-    <main class="main-content">
+    <!-- MENU -->
+
+    <nav class="sidebar-menu">
 
 
-        <!-- TOPBAR -->
+        <!-- PEMINJAMAN -->
 
-        <header class="topbar">
+        <a
+            href="index.html"
+            class="menu-item"
+        >
 
-            <div>
+            <span class="menu-icon">
+                🔑
+            </span>
 
-                <div class="system-label">
-                    SMART VEHICLE KEY SYSTEM
-                </div>
+            <span>
+                Peminjaman
+            </span>
 
-                <h1>
-                    Log Aktivitas
-                </h1>
+        </a>
 
+
+
+        <!-- DASHBOARD -->
+
+        <a
+            href="dashboard.html"
+            class="menu-item"
+        >
+
+            <span class="menu-icon">
+                📊
+            </span>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+
+        <!-- PENGEMBALIAN -->
+
+        <a
+            href="pengembalian.html"
+            class="menu-item"
+        >
+
+            <span class="menu-icon">
+                ↩️
+            </span>
+
+            <span>
+                Pengembalian
+            </span>
+
+        </a>
+
+
+
+        <!-- LOG AKTIVITAS -->
+
+        <a
+            href="logs.html"
+            class="menu-item active"
+        >
+
+            <span class="menu-icon">
+                📋
+            </span>
+
+            <span>
+                Log Aktivitas
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- SYSTEM STATUS -->
+
+    <div class="sidebar-status">
+
+        <div class="status-indicator"></div>
+
+
+        <div>
+
+            <strong>
+                Sistem Online
+            </strong>
+
+            <small>
+                ESP32 Ready
+            </small>
+
+        </div>
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- ==========================================
+     MAIN CONTENT
+========================================== -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+
+        <div>
+
+            <div class="system-label">
+                SMART VEHICLE KEY SYSTEM
             </div>
 
 
-            <div class="system-online">
-
-                <span></span>
-
-                System Online
-
-            </div>
-
-        </header>
+            <h1>
+                Log Aktivitas
+            </h1>
 
 
-        <!-- ==========================================
-             CONTENT
-        ========================================== -->
+            <p>
+                Riwayat aktivitas sistem peminjaman
+                dan pengembalian kunci.
+            </p>
 
-        <section class="logs-container">
-
-
-            <div class="logs-card">
+        </div>
 
 
-                <!-- HEADER -->
+        <div class="system-online">
 
-                <div class="logs-header">
+            <span></span>
 
-                    <div>
+            System Online
 
-                        <div class="logs-title-small">
-                            RIWAYAT SISTEM
-                        </div>
+        </div>
 
-                        <h2 class="logs-title">
-                            Log Aktivitas
-                        </h2>
 
-                        <p class="logs-subtitle">
-                            Riwayat aktivitas peminjaman dan pengembalian kunci kendaraan.
-                        </p>
+    </header>
 
+
+
+    <!-- CONTENT -->
+
+    <section class="logs-container">
+
+
+        <div class="logs-card">
+
+
+            <!-- HEADER -->
+
+            <div class="logs-header">
+
+
+                <div>
+
+
+                    <div class="logs-title-small">
+                        RIWAYAT SISTEM
                     </div>
 
 
-                    <button
-                        id="refreshLogsBtn"
-                        class="refresh-btn">
+                    <h2 class="logs-title">
+                        Log Aktivitas
+                    </h2>
 
-                        🔄 Refresh
 
-                    </button>
+                    <p class="logs-subtitle">
+                        Riwayat aktivitas peminjaman
+                        dan pengembalian kunci kendaraan.
+                    </p>
+
 
                 </div>
 
 
-                <!-- ==========================================
-                     TABLE
-                ========================================== -->
 
-                <div class="table-wrapper">
+                <button
+                    id="refreshLogsBtn"
+                    class="refresh-btn"
+                    type="button"
+                >
 
-                    <table class="activity-table">
+                    🔄
+                    Refresh
 
-                        <thead>
+                </button>
 
-                            <tr>
-
-                                <th>
-                                    Waktu
-                                </th>
-
-                                <th>
-                                    Loan ID
-                                </th>
-
-                                <th>
-                                    Peminjam
-                                </th>
-
-                                <th>
-                                    Aktivitas
-                                </th>
-
-                                <th>
-                                    Status
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody id="activityTableBody">
-
-                            <tr>
-
-                                <td
-                                    colspan="5"
-                                    class="loading">
-
-                                    ⏳ Memuat log aktivitas...
-
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
 
             </div>
 
-        </section>
-
-    </main>
 
 
-    <!-- ==========================================
-         SCRIPT
-    ========================================== -->
+            <!-- TABLE -->
 
-    <script src="config.js"></script>
-    <script src="logs.js"></script>
+            <div class="table-wrapper">
+
+
+                <table class="activity-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Waktu
+                            </th>
+
+                            <th>
+                                Loan ID
+                            </th>
+
+                            <th>
+                                Peminjam
+                            </th>
+
+                            <th>
+                                Aktivitas
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody id="activityTableBody">
+
+
+                        <tr>
+
+                            <td
+                                colspan="5"
+                                class="loading"
+                            >
+
+                                ⏳ Memuat log aktivitas...
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="config.js"></script>
+
+<script src="logs.js"></script>
+
 
 </body>
 
