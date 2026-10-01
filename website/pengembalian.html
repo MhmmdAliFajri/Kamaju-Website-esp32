@@ -1,520 +1,285 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Pengembalian</title>
 
-    <title>Pengembalian - CAR KEY</title>
-
-    <!-- FAVICON -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="assets/logo.png"
-    >
-
-    <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<div class="app">
 
-<!-- ==========================================
-     SIDEBAR
-========================================== -->
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-<aside class="sidebar">
-
-
-    <!-- BRAND -->
-
-    <div class="brand">
-
-        <div class="brand-icon">
-
-            <img
-                src="assets/logo.png"
-                alt="Smart Vehicle Key System"
-            >
-
+        <div class="logo">
+            🚗 Car Key
         </div>
 
+                <nav>
+
+             <a href="index.html" class="menu-item">
+             <span>📋</span>
+                <span>Peminjaman</span>
+             </a>
+
+             <a href="dashboard.html" class="menu-item">
+               <span>📊</span>
+               <span>Dashboard</span>
+             </a>
+
+             <a href="pengembalian.html" class="menu-item active">
+              <span>↩️</span>
+              <span>Pengembalian</span>
+             </a>
+
+             <a href="logs.html" class="menu-item">
+             <span>📝</span>
+             <span>Log Aktivitas</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h1>Pengembalian</h1>
+                <p>Pengembalian kunci dan penguncian tempat penyimpanan</p>
+            </div>
+
+        </header>
+
+
+<!-- CONTENT -->
+<section class="content return-page">
+
+    <!-- HEADER PENGEMBALIAN -->
+    <div class="return-header">
+
+        <div class="return-header-icon">
+            ↩️
+        </div>
 
         <div>
-
-            <h2>
-                CAR KEY
-            </h2>
-
-            <span>
-                Management System
-            </span>
-
+            <h2>Pengembalian Kunci</h2>
+            <p>
+                Pastikan kunci kendaraan dikembalikan
+                ke tempat penyimpanan setelah digunakan.
+            </p>
         </div>
 
     </div>
 
 
+    <!-- STATUS PEMINJAM -->
+    <div class="return-borrower-card">
 
-    <!-- MENU -->
+        <div class="return-borrower-icon">
+            👤
+        </div>
 
-    <nav class="sidebar-menu">
+        <div class="return-borrower-info">
 
+            <span>PEMINJAM AKTIF</span>
 
-        <!-- PEMINJAMAN -->
-
-        <a
-            href="index.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                🔑
-            </span>
-
-            <span>
-                Peminjaman
-            </span>
-
-        </a>
-
-
-
-        <!-- DASHBOARD -->
-
-        <a
-            href="dashboard.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                📊
-            </span>
-
-            <span>
-                Dashboard
-            </span>
-
-        </a>
-
-
-
-        <!-- PENGEMBALIAN -->
-
-        <a
-            href="pengembalian.html"
-            class="menu-item active"
-        >
-
-            <span class="menu-icon">
-                ↩️
-            </span>
-
-            <span>
-                Pengembalian
-            </span>
-
-        </a>
-
-
-
-        <!-- LOG -->
-
-        <a
-            href="logs.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                📋
-            </span>
-
-            <span>
-                Log Aktivitas
-            </span>
-
-        </a>
-
-
-    </nav>
-
-
-
-    <!-- SYSTEM STATUS -->
-
-    <div class="sidebar-status">
-
-        <div class="status-indicator"></div>
-
-        <div>
-
-            <strong>
-                Sistem Online
+            <strong id="activeBorrower">
+                Memuat...
             </strong>
 
-            <small>
-                ESP32 Ready
-            </small>
+        </div>
 
+        <div class="borrower-status">
+            ● AKTIF
         </div>
 
     </div>
 
 
-</aside>
+    <!-- PROSES PENGEMBALIAN -->
+    <div class="return-process-card">
 
+        <div class="return-process-title">
 
+            <div>
+                <span class="section-label">
+                    PROSES PENGEMBALIAN
+                </span>
 
-<!-- ==========================================
-     MAIN CONTENT
-========================================== -->
-
-<main class="main-content">
-
-
-    <!-- TOPBAR -->
-
-    <header class="topbar">
-
-        <div>
-
-            <div class="system-label">
-                SMART VEHICLE KEY SYSTEM
+                <h2>
+                    Kembalikan Kunci
+                </h2>
             </div>
-
-            <h1>
-                Pengembalian
-            </h1>
-
-            <p>
-                Pengembalian kunci dan penguncian tempat penyimpanan
-            </p>
 
         </div>
 
 
-        <div class="system-online">
+        <!-- STEP INDICATOR -->
+        <div class="return-steps">
 
-            <span></span>
+            <div class="return-step active" id="step1">
 
-            System Online
+                <div class="step-number">
+                    1
+                </div>
+
+                <div class="step-info">
+
+                    <strong>
+                        Buka Akses
+                    </strong>
+
+                    <span>
+                        Verifikasi PIN
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="return-step" id="step2">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <div class="step-info">
+
+                    <strong>
+                        Kembalikan Kunci
+                    </strong>
+
+                    <span>
+                        Masukkan kunci
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="return-step" id="step3">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <div class="step-info">
+
+                    <strong>
+                        Selesai
+                    </strong>
+
+                    <span>
+                        Sistem terkunci
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </header>
 
+        <!-- INSTRUKSI -->
+        <div class="return-instruction">
 
-
-    <!-- CONTENT -->
-
-    <section class="content return-page">
-
-
-        <!-- HEADER PENGEMBALIAN -->
-
-        <div class="return-header">
-
-
-            <div class="return-header-icon">
-                ↩️
+            <div class="instruction-icon">
+                🔐
             </div>
-
 
             <div>
 
-                <h2>
-                    Pengembalian Kunci
-                </h2>
+                <strong>
+                    Akses tempat penyimpanan masih terkunci
+                </strong>
 
                 <p>
-                    Pastikan kunci kendaraan dikembalikan
-                    ke tempat penyimpanan setelah digunakan.
+                    Masukkan PIN untuk membuka akses.
+                    Setelah kunci dikembalikan, tekan tombol
+                    untuk mengunci dan menyelesaikan pengembalian.
                 </p>
 
             </div>
 
-
         </div>
 
 
+        <!-- FORM PIN -->
+        <form id="returnForm">
 
-        <!-- STATUS PEMINJAM -->
+            <div class="return-pin-group">
 
-        <div class="return-borrower-card">
+                <label for="returnPin">
+                    PIN AKSES
+                </label>
 
-
-            <div class="return-borrower-icon">
-                👤
-            </div>
-
-
-            <div class="return-borrower-info">
-
-                <span>
-                    PEMINJAM AKTIF
-                </span>
-
-                <strong id="activeBorrower">
-                    Memuat...
-                </strong>
-
-            </div>
-
-
-            <div class="borrower-status">
-                ● AKTIF
-            </div>
-
-
-        </div>
-
-
-
-        <!-- PROSES PENGEMBALIAN -->
-
-        <div class="return-process-card">
-
-
-            <div class="return-process-title">
-
-                <div>
-
-                    <span class="section-label">
-                        PROSES PENGEMBALIAN
-                    </span>
-
-                    <h2>
-                        Kembalikan Kunci
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- STEP INDICATOR -->
-
-            <div class="return-steps">
-
-
-                <!-- STEP 1 -->
-
-                <div
-                    class="return-step active"
-                    id="step1"
+                <input
+                    type="password"
+                    id="returnPin"
+                    maxlength="6"
+                    inputmode="numeric"
+                    placeholder="Masukkan 6 digit PIN"
+                    autocomplete="off"
                 >
 
-                    <div class="step-number">
-                        1
-                    </div>
-
-                    <div class="step-info">
-
-                        <strong>
-                            Buka Akses
-                        </strong>
-
-                        <span>
-                            Verifikasi PIN
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="step-line"></div>
-
-
-
-                <!-- STEP 2 -->
-
-                <div
-                    class="return-step"
-                    id="step2"
-                >
-
-                    <div class="step-number">
-                        2
-                    </div>
-
-                    <div class="step-info">
-
-                        <strong>
-                            Kembalikan Kunci
-                        </strong>
-
-                        <span>
-                            Masukkan kunci
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="step-line"></div>
-
-
-
-                <!-- STEP 3 -->
-
-                <div
-                    class="return-step"
-                    id="step3"
-                >
-
-                    <div class="step-number">
-                        3
-                    </div>
-
-                    <div class="step-info">
-
-                        <strong>
-                            Selesai
-                        </strong>
-
-                        <span>
-                            Sistem terkunci
-                        </span>
-
-                    </div>
-
-                </div>
-
-
             </div>
 
 
-
-            <!-- INSTRUKSI -->
-
-            <div class="return-instruction">
-
-
-                <div class="instruction-icon">
-                    🔐
-                </div>
-
-
-                <div>
-
-                    <strong>
-                        Akses tempat penyimpanan masih terkunci
-                    </strong>
-
-                    <p>
-                        Masukkan PIN untuk membuka akses.
-                        Setelah kunci dikembalikan, tekan tombol
-                        untuk mengunci dan menyelesaikan pengembalian.
-                    </p>
-
-                </div>
+            <!-- BUTTON BUKA -->
+            <button
+                type="submit"
+                id="returnBtn"
+                class="btn-primary return-button"
+            >
+                🔓
+                BUKA AKSES PENGEMBALIAN
+            </button>
 
 
-            </div>
+            <!-- BUTTON SELESAI -->
+            <button
+                type="button"
+                id="finishReturnBtn"
+                class="btn-secondary return-button"
+                style="display: none;"
+            >
+                🔒
+                KUNCI & SELESAIKAN PENGEMBALIAN
+            </button>
+
+        </form>
 
 
+        <!-- MESSAGE -->
+        <div
+            id="returnMessage"
+            class="control-message"
+        ></div>
 
-            <!-- FORM PIN -->
+    </div>
 
-            <form id="returnForm">
-
-
-                <div class="return-pin-group">
-
-                    <label for="returnPin">
-                        PIN AKSES
-                    </label>
-
-
-                    <input
-                        type="password"
-                        id="returnPin"
-                        maxlength="6"
-                        inputmode="numeric"
-                        placeholder="Masukkan 6 digit PIN"
-                        autocomplete="off"
-                    >
-
-                </div>
-
-
-
-                <!-- BUKA -->
-
-                <button
-                    type="submit"
-                    id="returnBtn"
-                    class="btn-primary return-button"
-                >
-
-                    🔓
-                    BUKA AKSES PENGEMBALIAN
-
-                </button>
-
-
-
-                <!-- SELESAI -->
-
-                <button
-                    type="button"
-                    id="finishReturnBtn"
-                    class="btn-secondary return-button"
-                    style="display: none;"
-                >
-
-                    🔒
-                    KUNCI & SELESAIKAN PENGEMBALIAN
-
-                </button>
-
-
-            </form>
-
-
-
-            <!-- MESSAGE -->
-
-            <div
-                id="returnMessage"
-                class="control-message"
-            ></div>
-
-
-        </div>
-
-
-    </section>
-
-
-</main>
-
-
-
-<!-- JAVASCRIPT -->
+</section>
 
 <script src="config.js"></script>
-
 <script src="pengembalian.js"></script>
 
-
 </body>
-
 </html>
