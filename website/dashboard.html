@@ -10,16 +10,8 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Dashboard - CAR KEY</title>
+    <title>Dashboard - Car Key Management</title>
 
-    <!-- FAVICON -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="assets/logo.png"
-    >
-
-    <!-- CSS -->
     <link
         rel="stylesheet"
         href="style.css"
@@ -31,361 +23,418 @@
 <body>
 
 
-<!-- ==========================================
-     SIDEBAR
-========================================== -->
+    <!-- SIDEBAR -->
 
-<aside class="sidebar">
+    <aside class="sidebar">
 
+        <div class="brand">
 
-    <!-- BRAND -->
-
-    <div class="brand">
-
-        <div class="brand-icon">
-
-            <img
-                src="assets/logo.png"
-                alt="Smart Vehicle Key System"
-            >
-
-        </div>
-
-
-        <div>
-
-            <h2>
-                CAR KEY
-            </h2>
-
-            <span>
-                Management System
-            </span>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- MENU -->
-
-    <nav class="sidebar-menu">
-
-
-        <!-- PEMINJAMAN -->
-
-        <a
-            href="index.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                🔑
-            </span>
-
-            <span>
-                Peminjaman
-            </span>
-
-        </a>
-
-
-
-        <!-- DASHBOARD -->
-
-        <a
-            href="dashboard.html"
-            class="menu-item active"
-        >
-
-            <span class="menu-icon">
-                📊
-            </span>
-
-            <span>
-                Dashboard
-            </span>
-
-        </a>
-
-
-
-        <!-- PENGEMBALIAN -->
-
-        <a
-            href="pengembalian.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                ↩️
-            </span>
-
-            <span>
-                Pengembalian
-            </span>
-
-        </a>
-
-
-
-        <!-- LOG -->
-
-        <a
-            href="logs.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                📋
-            </span>
-
-            <span>
-                Log Aktivitas
-            </span>
-
-        </a>
-
-
-    </nav>
-
-
-
-    <!-- SYSTEM STATUS -->
-
-    <div class="sidebar-status">
-
-        <div class="status-indicator"></div>
-
-        <div>
-
-            <strong>
-                Sistem Online
-            </strong>
-
-            <small>
-                ESP32 Ready
-            </small>
-
-        </div>
-
-    </div>
-
-
-</aside>
-
-
-
-<!-- ==========================================
-     MAIN CONTENT
-========================================== -->
-
-<main class="main-content">
-
-
-    <!-- TOPBAR -->
-
-    <header class="topbar">
-
-        <div>
-
-            <div class="system-label">
-                SMART VEHICLE KEY SYSTEM
+            <div class="brand-icon">
+                🚗
             </div>
 
-            <h1>
-                Dashboard
-            </h1>
+            <div>
 
-            <p>
-                Kontrol dan monitoring tempat penyimpanan kunci
-            </p>
+                <h2>CAR KEY</h2>
 
-        </div>
+                <span>
+                    Management System
+                </span>
 
-
-        <div class="system-online">
-
-            <span></span>
-
-            System Online
+            </div>
 
         </div>
 
-    </header>
+
+        <nav class="menu">
+
+            <a
+                href="index.html"
+                class="menu-item"
+            >
+
+                <span>🔑</span>
+
+                <span>
+                    Peminjaman
+                </span>
+
+            </a>
 
 
+           <a
+    href="dashboard.html"
+    class="menu-item active"
+>
 
-    <!-- CONTENT -->
+    <span>📊</span>
 
-    <section class="content">
+    <span>
+        Dashboard
+    </span>
+
+</a>
 
 
-        <!-- STATUS CARD -->
+<a
+    href="pengembalian.html"
+    class="menu-item"
+>
 
-        <div class="card">
+    <span>↩️</span>
 
-            <div class="card-header">
+    <span>
+        Pengembalian
+    </span>
+
+</a>
+
+
+<a
+    href="logs.html"
+    class="menu-item"
+>
+
+    <span>📋</span>
+
+    <span>
+        Log Aktivitas
+    </span>
+
+</a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
 
                 <div>
 
-                    <span class="section-label">
-                        STATUS SISTEM
-                    </span>
-
-                    <h2>
-                        Kontrol Tempat Penyimpanan
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- STATUS -->
-
-            <div
-                id="statusCard"
-                class="status-card"
-            >
-
-                <div
-                    id="statusIcon"
-                    class="status-icon"
-                >
-                    🔒
-                </div>
-
-
-                <div class="status-info">
-
-                    <span>
-                        STATUS PENYIMPANAN
-                    </span>
-
-                    <strong id="lockStatus">
-                        Memuat...
+                    <strong>
+                        Sistem Online
                     </strong>
 
-                    <small id="statusDescription">
-                        Mengambil status ESP32...
+                    <small>
+                        ESP32 Ready
                     </small>
 
                 </div>
 
-
             </div>
-
-
-
-            <!-- CONTROL BUTTON -->
-
-            <div class="control-buttons">
-
-
-                <button
-                    id="unlockBtn"
-                    class="btn-primary"
-                    type="button"
-                >
-
-                    🔓
-                    UNLOCK
-
-                </button>
-
-
-                <button
-                    id="lockBtn"
-                    class="btn-secondary"
-                    type="button"
-                >
-
-                    🔒
-                    LOCK
-
-                </button>
-
-
-            </div>
-
-
-
-            <!-- MESSAGE -->
-
-            <div
-                id="controlMessage"
-                class="control-message"
-            ></div>
-
 
         </div>
 
+    </aside>
 
 
-        <!-- LOAN INFORMATION -->
 
-        <div class="card">
+    <!-- MAIN -->
+
+    <main class="main-content">
 
 
-            <div class="card-header">
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="page-label">
+                    SMART VEHICLE KEY SYSTEM
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div
+                class="top-status"
+                id="topStatus"
+            >
+
+                <span class="status-dot"></span>
+
+                Checking...
+
+            </div>
+
+        </header>
+
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+
+            <!-- STATUS UTAMA -->
+
+            <div class="dashboard-status-card">
+
 
                 <div>
 
-                    <span class="section-label">
-                        INFORMASI PEMINJAMAN
+                    <span class="card-label">
+                        STATUS KUNCI
                     </span>
 
-                    <h2>
-                        Peminjam Aktif
+                    <h2 id="doorStatus">
+                        Memuat...
                     </h2>
 
+                    <p id="activity">
+                        Mengambil status ESP32...
+                    </p>
+
                 </div>
+
+
+                <div
+                    class="dashboard-lock-icon"
+                    id="lockIcon"
+                >
+                    🔒
+                </div>
+
 
             </div>
 
 
 
-            <div class="loan-info">
+            <!-- CONTROL -->
+
+            <div class="loan-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            KONTROL KUNCI
+                        </span>
+
+                        <h2>
+                            Kontrol Pintu
+                        </h2>
+
+                    </div>
+
+                </div>
 
 
-                <div class="info-item">
+                <div class="control-buttons">
+
+
+                    <button
+                        class="btn-primary"
+                        id="unlockBtn"
+                    >
+
+                        🔓
+                        UNLOCK
+
+                    </button>
+
+
+                    <button
+                        class="btn-secondary"
+                        id="lockBtn"
+                    >
+
+                        🔒
+                        LOCK
+
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    id="controlMessage"
+                    class="control-message"
+                ></div>
+
+            </div>
+
+
+
+            <!-- PEMINJAM -->
+
+            <div class="loan-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            INFORMASI PEMINJAMAN
+                        </span>
+
+                        <h2>
+                            Peminjam Aktif
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="borrower-display">
 
                     <span>
-                        PEMINJAM
+                        👤
                     </span>
 
                     <strong id="activeBorrower">
-                        -
+                        Tidak ada peminjam
                     </strong>
 
                 </div>
 
+            </div>
 
-                <div class="info-item">
 
-                    <span>
-                        LOAN ID
-                    </span>
 
-                    <strong id="activeLoanId">
-                        -
-                    </strong>
+            <!-- INFO ESP32 -->
+
+            <div class="info-grid">
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        📡
+                    </div>
+
+                    <div>
+
+                        <span>
+                            ESP32
+                        </span>
+
+                        <strong id="espStatus">
+                            -
+                        </strong>
+
+                    </div>
 
                 </div>
 
 
-                <div class="info-item">
 
-                    <span>
-                        WAKTU MULAI
-                    </span>
+                <div class="info-card">
 
-                    <strong id="loanStartTime">
-                        -
-                    </strong>
+                    <div class="info-icon">
+                        🔌
+                    </div>
+
+                    <div>
+
+                        <span>
+                            GPIO
+                        </span>
+
+                        <strong id="gpio">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        🌐
+                    </div>
+
+                    <div>
+
+                        <span>
+                            IP ESP32
+                        </span>
+
+                        <strong id="espIp">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        📶
+                    </div>
+
+                    <div>
+
+                        <span>
+                            RSSI
+                        </span>
+
+                        <strong id="rssi">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ⏱️
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Uptime
+                        </span>
+
+                        <strong id="uptime">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        💾
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Free Heap
+                        </span>
+
+                        <strong id="freeHeap">
+                            -
+                        </strong>
+
+                    </div>
 
                 </div>
 
@@ -393,21 +442,18 @@
             </div>
 
 
-        </div>
+        </section>
 
 
-    </section>
-
-
-</main>
+    </main>
 
 
 
-<!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT -->
 
-<script src="config.js"></script>
+    <script src="config.js"></script>
 
-<script src="dashboard.js"></script>
+    <script src="dashboard.js"></script>
 
 
 </body>
